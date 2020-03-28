@@ -1,0 +1,37 @@
+plugins {
+    id 'java'
+}
+
+sourceSets{
+    main.java.srcDir "src/java"
+}
+
+version = 0.1
+sourceCompatibility = 1.8
+
+repositories {
+   jcenter()
+}
+
+dependencies {
+   compile 'org.slf4j:slf4j-api:1.7.12'
+   testCompile 'junit:junit:4.12'
+}
+
+task myTask {
+    doLast{
+        println project
+        println name
+        println projectDir
+        println buildDir
+        println group
+        println version
+        println ant
+    }
+}
+
+jar{
+    manifest{
+        attributes 'Main-Class': 'net.donext.App'
+    }
+}
